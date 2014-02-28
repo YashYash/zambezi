@@ -9,7 +9,7 @@ def home(request):
 
 def books(request):
     books = Book.objects.all()
-    data = {'Books': books}
+    data = {'books': books}
     return render(request, "books/books.html", {'books': books})
 
 
@@ -28,7 +28,7 @@ def new_book(request):
 def view_book(request, book_id):
     book = Book.objects.get(id=book_id)
     data = {"book":book}
-    return render(request, "books/view_book.html",data)
+    return render(request, "books/view_book.html", data)
 
 
 def edit_book(request, book_id):

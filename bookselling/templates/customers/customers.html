@@ -4,6 +4,7 @@
 <a href="{% url "home" %}">Home</a>
 <h1>Welcome to the Zambizi book store</h1>
 <ul>
+<h3>A List of Our Customers</h3>
        {% for customer in Customers %}
         <li><a href="{% url "view_customer" customer.id %}">{{ customer.name }}</a></li>
        {% endfor %}

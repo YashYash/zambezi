@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Book(models.Model):
     name = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
@@ -8,6 +9,7 @@ class Book(models.Model):
 
     def __unicode__(self):
         return self.name
+
 
 class Customer(models.Model):
     name = models.CharField(max_length=100)
