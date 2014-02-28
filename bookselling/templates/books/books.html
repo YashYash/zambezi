@@ -1,0 +1,15 @@
+<html>
+<head><title>My Site</title></head>
+<body>
+<a href="{% url "home" %}">Home</a>
+<h1>Welcome to the Zambizi book store</h1>
+<h3>Our Books</h3>
+<ul>
+       {% for book in books %}
+        <li><a href="{% url "view_book" book.id %}">{{ book.name }}</a></li>
+       {% endfor %}
+</ul>
+<br>
+<a href="{% url "new_book" %}">Add New Book</a>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<head></head>
+<body>
+<a href="{% url "home" %}">Home</a>
+<h1>Our Customers</h1>
+<h1>{{ customer.name }}</h1>
+Email: {{ customer.email }}
+<br>
+Books Purchased:
+<ul>
+{%  for book in customer.books.all %}
+    <li>{{ book.name }}</li>
+{% endfor %}
+</ul>
+<a href="{% url "edit_customer" customer.id %}">Edit Customer</a>
+<br>
+<a href="{% url "delete_customer" customer.id %}">Delete Customer</a>
+</body>
+</html>
