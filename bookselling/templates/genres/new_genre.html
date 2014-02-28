@@ -1,0 +1,11 @@
+<html>
+<head><title>My Site</title></head>
+<body>
+<h1>Add a Genre</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form3 }}
+    <input type="submit" value="Add Genre"/>
+</form>
+</body>
+</html>

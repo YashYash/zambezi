@@ -3,10 +3,16 @@
 <body>
 <a href="{% url "home" %}">Home</a>
 <h1>{{ book.name }}</h1>
-Genre: {{ book.genre }}
-<br>
+
 Pages: {{ book.pages }}
 <br>
+<h3>Genres</h3>
+<ul>
+{%  for gen in book.genre.all %}
+    <li>{{ gen.name }}</li>
+{% endfor %}
+</ul>
+<h3>People who Purchased the book</h3>
 <ul>
 {%  for cust in book.customer_set.all %}
     <li>{{ cust.name }}</li>
@@ -15,5 +21,7 @@ Pages: {{ book.pages }}
 <a href="{% url "edit_book" book.id %}">Edit book</a>
 <br>
 <a href="{% url "delete_book" book.id %}">Delete book</a>
+<br>
+<a href="{% url "books" %}">Back to Books</a>
 </body>
 </html>

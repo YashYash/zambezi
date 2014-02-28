@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from bookselling.forms import BookForm, CustomerForm
-from bookselling.models import Book, Customer
+from bookselling.forms import BookForm, CustomerForm, GenreForm
+from bookselling.models import Book, Customer, Genre
 
 
 def home(request):
@@ -94,3 +94,49 @@ def delete_customer(request, customer_id):
     customer = Customer.objects.get(id=customer_id)
     customer.delete()
     return redirect("/customers")
+
+
+def genres(request):
+    genres = Genre.objects.all()
+    data = {'genres': genres}
+    return render(request, "genres/genres.html", {'genres': genres})
+
+
+def new_genre(request):
+    if request.method == "POST":
+        form3 = GenreForm(request.POST)
+        if form3.is_valid():
+            if form3.save():
+                return redirect("/genres")
+    else:
+        form3 = GenreForm()
+    data = {'form3': form3}
+    return render(request, "genres/new_genre.html", data)
+
+
+def view_genre(request, genre_id):
+    genre = Genre.objects.get(id=genre_id)
+    data = {"genre": genre}
+    return render(request, "genres/view_genre.html",data)
+
+
+def edit_genre(request, genre_id):
+    genre = Genre.objects.get(id=genre_id)
+    print genre
+    if request.method == "POST":
+        form3 = GenreForm(request.POST, instance=genre)
+        print "POST"
+        if form3.is_valid():
+            if form3.save():
+                return redirect("/genres/{}".format(genre_id))
+    else:
+        form3 = GenreForm(instance=genre)
+
+    data = {"genre": genre, "form3": form3}
+    print form3
+    return render(request, "genres/edit_genre.html",data)
+
+def delete_genre(request, genre_id):
+    genre = Genre.objects.get(id=genre_id)
+    genre.delete()
+    return redirect("/genres")

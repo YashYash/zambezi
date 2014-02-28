@@ -12,8 +12,7 @@ Books Purchased:
     <li>{{ book.name }}</li>
 {% endfor %}
 </ul>
-Book List:
-<li>Books here</li>
+<br>
 <a href="{% url "edit_customer" customer.id %}">Edit Customer</a>
 <br>
 <a href="{% url "delete_customer" customer.id %}">Delete Customer</a>

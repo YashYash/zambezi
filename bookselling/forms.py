@@ -1,6 +1,6 @@
 from pyexpat import model
 from django.forms import ModelForm
-from bookselling.models import Book
+from bookselling.models import Book, Genre
 from bookselling.models import Customer
 
 
@@ -15,3 +15,7 @@ class BookForm(ModelForm):
 class CustomerForm(ModelForm):
     class Meta:
         model=Customer
+
+class GenreForm(ModelForm):
+    class Meta:
+        model=Genre

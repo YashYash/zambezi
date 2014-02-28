@@ -23,7 +23,10 @@ urlpatterns = patterns('',
     url(r'^customers/(?P<customer_id>\w+)/$', 'bookselling.views.view_customer', name='view_customer'),
     url(r'^customers/(?P<customer_id>\w+)/edit/$', 'bookselling.views.edit_customer', name='edit_customer'),
     url(r'^customers/(?P<customer_id>\w+)/delete/$', 'bookselling.views.delete_customer', name='delete_customer'),
-
-
+    url(r'^genres/$', 'bookselling.views.genres', name='genres'),
+    url(r'^genres/new/$', 'bookselling.views.new_genre', name='new_genre'),
+    url(r'^genres/(?P<genre_id>\w+)/$', 'bookselling.views.view_genre', name='view_genre'),
+    url(r'^genres/(?P<genre_id>\w+)/edit/$', 'bookselling.views.edit_genre', name='edit_genre'),
+    url(r'^genres/(?P<genre_id>\w+)/delete/$', 'bookselling.views.delete_genre', name='delete_genre'),
 
 )
